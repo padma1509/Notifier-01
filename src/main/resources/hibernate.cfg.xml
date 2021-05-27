@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+
+
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/Notifier</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password"></property>
+
+
+        <property name="connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider </property>
+        <property name="hibernate.c3p0.idle_test_period">5000</property>
+        <property name="hibernate.c3p0.preferredTestQuery">select 1;</property>
+
+        <!-- JDBC connection pool (use the built-in) -->
+        <!--<property name="connection.pool_size">1</property>-->
+
+
+        <property name="dialect">org.hibernate.dialect.MySQL8Dialect</property>
+        <property name="hbm2ddl.auto">update</property>    <!--    it upadtes the table-->
+        <!--<property name="hbm2ddl.auto">create</property>       it creates the table-->
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+        <mapping class="com.example.demo.model.Note"/>
+        <mapping class="com.example.demo.model.NoteBook"/>
+        <mapping class="com.example.demo.model.Status"/>
+        <mapping class="com.example.demo.model.Tag"/>
+        <mapping class="com.example.demo.model.User"/>
+
+
+    </session-factory>
+
+</hibernate-configuration>
